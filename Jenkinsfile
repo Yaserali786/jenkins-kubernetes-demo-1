@@ -1,12 +1,12 @@
 pipeline {
     agent any
     stages {
-        stages ('Deploy Backend') {
+        stage('Deploy Backend') {
             steps {
                 sh "kubectl apply -f backend.yaml"
             }
         }
-        stage ('Deploy Frontend') {
+        stage('Deploy Frontend') {
             steps {
                 sh "kubectl apply -f frontend.yaml"
                 sh "kubectl get svc -w"
